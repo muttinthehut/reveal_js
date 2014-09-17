@@ -1,4 +1,6 @@
 var util = require('util'),
     connect = require('connect'),
-    port = process.env.PORT || 3000;
-connect.createServer(connect.static(__dirname)).listen(port);
+    serveStatic = require('serve-static'),
+    port = process.env.PORT;
+connect().use(serveStatic(__dirname)).listen(port);
+
